@@ -1,9 +1,15 @@
-
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Search, Clock, Users, PieChart, UserCheck, Shield } from 'lucide-react';
 
 const BusinessSolutions = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+
   const benefits = [
     {
       icon: <Search size={24} />,
@@ -38,7 +44,7 @@ const BusinessSolutions = () => {
   ];
 
   return (
-    <section className="section-padding relative overflow-hidden bg-background/50">
+    <section id="business" ref={containerRef} className="section-padding relative overflow-hidden bg-background/50">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
