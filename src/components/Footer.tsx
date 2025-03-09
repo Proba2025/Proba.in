@@ -13,7 +13,7 @@ const Footer = () => {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="mb-6 md:mb-0"
           >
-            <span className="text-xl font-medium tracking-tight">Vision.</span>
+            <span className="text-xl font-medium tracking-tight">Proba.</span>
           </motion.div>
           
           <motion.div 
@@ -58,7 +58,7 @@ const Footer = () => {
           className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-sm text-foreground/60 mb-4 md:mb-0">
-            © 2023 Vision. All rights reserved.
+            © 2025 Proba. All rights reserved.
           </p>
           
           <div className="flex space-x-6">

@@ -86,14 +86,16 @@ const Navbar = () => {
           >
             <ThemeToggle />
 
+            <Link to="/auth">
             <motion.button
               className="glass-button px-5 py-2 rounded-full text-sm font-medium button-highlight"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <Link to="/auth">Sign in</Link>
+              Sign in
             </motion.button>
+            </Link>
           </motion.div>
         </div>
 
