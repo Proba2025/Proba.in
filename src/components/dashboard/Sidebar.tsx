@@ -20,7 +20,8 @@ import {
   Moon,
   Sun,
   Bell,
-  HelpCircle
+  HelpCircle,
+  FolderKanban
 } from "lucide-react";
 
 export const Sidebar = () => {
@@ -64,7 +65,7 @@ export const Sidebar = () => {
     { icon: Code, label: "Coding Challenges", path: "/dashboard/coding-challenges" },
     { icon: PieChart, label: "Analytics", path: "/dashboard/analytics" },
     { icon: Users, label: "B2B Solutions", path: "/dashboard/b2b" },
-    { icon: BookOpen, label: "Learning Paths", path: "/dashboard/learning" },
+    { icon: FolderKanban, label: "Projects", path: "/dashboard/projects" },
     { icon: Settings, label: "Settings", path: "/dashboard/settings" },
   ];
 

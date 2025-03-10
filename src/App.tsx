@@ -12,6 +12,10 @@ import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
 import CodingChallenges from "./pages/CodingChallenges";
+import ModeInterview from "./pages/Interview";
+import ModeTest from "./pages/test";
+import Projects from "./pages/Project";
+import B2BSolutions from "./pages/B2BSolutions";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +37,10 @@ const App = () => {
               <Route path="/dashboard/settings" element={<Settings />} />
               <Route path="/dashboard/*" element={<Dashboard />} />
               <Route path="/dashboard/coding-challenges" element={<CodingChallenges />} />
+              <Route path="/dashboard/mock-interviews" element={<ModeInterview />} />
+              <Route path="/dashboard/mock-tests" element={<ModeTest />} />
+              <Route path="/dashboard/projects" element={<Projects />} />
+              <Route path="/dashboard/b2b" element={<B2BSolutions />} />
               
               {/* Catch-all route for 404 pages */}
               <Route path="*" element={<NotFound />} />
