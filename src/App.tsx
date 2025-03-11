@@ -16,6 +16,7 @@ import ModeInterview from "./pages/Interview";
 import ModeTest from "./pages/test";
 import Projects from "./pages/Project";
 import B2BSolutions from "./pages/B2BSolutions";
+import Analytics from "./pages/Analytics";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const App = () => {
               <Route path="/dashboard/mock-tests" element={<ModeTest />} />
               <Route path="/dashboard/projects" element={<Projects />} />
               <Route path="/dashboard/b2b" element={<B2BSolutions />} />
+              <Route path="/dashboard/analytics" element={<Analytics />} />
               
               {/* Catch-all route for 404 pages */}
               <Route path="*" element={<NotFound />} />

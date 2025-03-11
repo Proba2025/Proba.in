@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import logo from "../../../public/favicon.ico";
 import {
   ChevronLeft,
-  ChevronRight,
   LayoutDashboard,
   FileText,
   Code,
@@ -16,30 +16,32 @@ import {
   Users,
   BookOpen,
   LogOut,
-  Sparkles,
   Moon,
   Sun,
   Bell,
   HelpCircle,
-  FolderKanban
+  FolderKanban,
+  ChevronRight,
 } from "lucide-react";
 
 export const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark'>(
-    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  const [theme, setTheme] = useState<"light" | "dark">(
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
   );
   const { toast } = useToast();
   const location = useLocation();
 
   // Handle theme toggle
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
+    const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    document.documentElement.classList.toggle('dark');
-    
+    document.documentElement.classList.toggle("dark");
+
     toast({
-      title: `${newTheme.charAt(0).toUpperCase() + newTheme.slice(1)} mode activated`,
+      title: `${
+        newTheme.charAt(0).toUpperCase() + newTheme.slice(1)
+      } mode activated`,
       description: `Successfully switched to ${newTheme} mode.`,
     });
   };
@@ -52,17 +54,25 @@ export const Sidebar = () => {
       }
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize(); // Check on initial load
-    
-    return () => window.removeEventListener('resize', handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const navItems = [
     { icon: LayoutDashboard, label: "Overview", path: "/dashboard" },
     { icon: FileText, label: "Mock Tests", path: "/dashboard/mock-tests" },
-    { icon: MessageSquare, label: "Mock Interviews", path: "/dashboard/mock-interviews" },
-    { icon: Code, label: "Coding Challenges", path: "/dashboard/coding-challenges" },
+    {
+      icon: MessageSquare,
+      label: "Mock Interviews",
+      path: "/dashboard/mock-interviews",
+    },
+    {
+      icon: Code,
+      label: "Coding Challenges",
+      path: "/dashboard/coding-challenges",
+    },
     { icon: PieChart, label: "Analytics", path: "/dashboard/analytics" },
     { icon: Users, label: "B2B Solutions", path: "/dashboard/b2b" },
     { icon: FolderKanban, label: "Projects", path: "/dashboard/projects" },
@@ -93,7 +103,7 @@ export const Sidebar = () => {
   // Sidebar animation variants
   const sidebarVariants = {
     expanded: { width: 250, transition: { duration: 0.3, ease: "easeInOut" } },
-    collapsed: { width: 80, transition: { duration: 0.3, ease: "easeInOut" } }
+    collapsed: { width: 80, transition: { duration: 0.3, ease: "easeInOut" } },
   };
 
   return (
@@ -114,7 +124,7 @@ export const Sidebar = () => {
               transition={{ duration: 0.2 }}
               className="flex items-center gap-2"
             >
-              <Sparkles className="h-8 w-8 text-blue-600" />
+              <img src={logo} alt="logo" className="h-8 w-8" />
               <span className="font-bold text-xl">Proba</span>
             </motion.div>
           )}
@@ -126,10 +136,16 @@ export const Sidebar = () => {
           className="hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full"
         >
           <motion.div
-            animate={{ rotate: collapsed ? 180 : 0 }}
+            key={collapsed.toString()} // Ensures animation applies when component changes
+            initial={{ opacity: 0, x: collapsed ? -10 : 10 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <ChevronLeft className="h-5 w-5" />
+            {collapsed ? (
+              <img src={logo} alt="logo" className="h-8 w-8" />
+            ) : (
+              <ChevronLeft className="h-5 w-5" />
+            )}
           </motion.div>
         </Button>
       </div>
@@ -139,15 +155,15 @@ export const Sidebar = () => {
         <nav className="px-2 space-y-1">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
-            
+
             return (
               <Link
                 key={item.label}
                 to={item.path}
                 className={cn(
                   "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200",
-                  isActive 
-                    ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400" 
+                  isActive
+                    ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
                     : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                 )}
               >
@@ -188,7 +204,7 @@ export const Sidebar = () => {
               collapsed ? "rounded-lg" : "rounded-lg px-3 justify-start gap-3"
             )}
           >
-            {theme === 'light' ? (
+            {theme === "light" ? (
               <Moon className="h-5 w-5" />
             ) : (
               <Sun className="h-5 w-5" />
@@ -202,12 +218,12 @@ export const Sidebar = () => {
                   transition={{ duration: 0.2 }}
                   className="whitespace-nowrap font-medium"
                 >
-                  {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+                  {theme === "light" ? "Dark Mode" : "Light Mode"}
                 </motion.span>
               )}
             </AnimatePresence>
           </Button>
-          
+
           <Button
             variant="ghost"
             size="icon"
@@ -232,7 +248,7 @@ export const Sidebar = () => {
               )}
             </AnimatePresence>
           </Button>
-          
+
           <Button
             variant="ghost"
             size="icon"
@@ -269,10 +285,7 @@ export const Sidebar = () => {
             "w-full flex items-center gap-3 justify-start px-3 py-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
           )}
         >
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
             <LogOut className="h-5 w-5" />
           </motion.div>
           <AnimatePresence mode="wait">
