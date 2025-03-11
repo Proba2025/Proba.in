@@ -133,7 +133,7 @@ export const Sidebar = () => {
           variant="ghost"
           size="icon"
           onClick={() => setCollapsed(!collapsed)}
-          className="hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full"
+          className="hover:bg-gray-100 hover:text-bg-gray-700 dark:hover:bg-gray-700 rounded-full"
         >
           <motion.div
             key={collapsed.toString()} // Ensures animation applies when component changes
@@ -200,7 +200,7 @@ export const Sidebar = () => {
             size="icon"
             onClick={toggleTheme}
             className={cn(
-              "flex items-center justify-center w-full py-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all",
+              "flex items-center justify-center w-full py-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 hover:text-bg-gray-700 dark:hover:bg-gray-700 transition-all",
               collapsed ? "rounded-lg" : "rounded-lg px-3 justify-start gap-3"
             )}
           >
@@ -229,7 +229,7 @@ export const Sidebar = () => {
             size="icon"
             onClick={handleNotifications}
             className={cn(
-              "flex items-center justify-center w-full py-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all",
+              "flex items-center justify-center w-full py-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 hover:text-bg-gray-700 dark:hover:bg-gray-700 transition-all",
               collapsed ? "rounded-lg" : "rounded-lg px-3 justify-start gap-3"
             )}
           >
@@ -254,7 +254,7 @@ export const Sidebar = () => {
             size="icon"
             onClick={handleHelp}
             className={cn(
-              "flex items-center justify-center w-full py-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all",
+              "flex items-center justify-center w-full py-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 hover:text-bg-gray-700 dark:hover:bg-gray-700 transition-all",
               collapsed ? "rounded-lg" : "rounded-lg px-3 justify-start gap-3"
             )}
           >
@@ -282,7 +282,7 @@ export const Sidebar = () => {
           variant="ghost"
           onClick={handleLogout}
           className={cn(
-            "w-full flex items-center gap-3 justify-start px-3 py-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
+            "w-full flex items-center gap-3 justify-start px-3 py-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 hover:text-bg-gray-700 dark:hover:bg-gray-700 transition-all"
           )}
         >
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
